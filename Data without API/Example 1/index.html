@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+
+        let myChart = document.getElementById('myChart').getContext('2d');
+
+        // Global Options for the whole chart
+
+        Chart.defaults.global.defaultFontFamily = 'Lato';
+        Chart.defaults.global.defaultFontSize = 18;
+        Chart.defaults.global.defaultFontColor = '#777';
+
+        let chartType = new Chart(myChart, {
+            type: 'bar',
+            data: {
+                labels:['Mumbai', 'Delhi', 'Bengaluru', 'Chennai', 'Kolkata'],
+                datasets:[{
+                    label: 'Population',
+                    data:[
+                        12691836,
+                        10927986,
+                        5104047,
+                        4328063,
+                        4631392
+                    ],
+                    backgroundColor:[
+                        '#B1351B',
+                        '#52E417',
+                        '#E7F50D',
+                        '#0DA1F5',
+                        '#F50DE0'
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#777',
+                    hoverBorderWidth: 5,
+                    hoverBorderColor: '#0DF5F2'
+                }]
+            },
+            options: {
+                title:{
+                    display: true,
+                    text: 'Top 5 Most populous cities of India',
+                    fontSize: 25
+                },
+                legend:{
+                    display: false
+                },
+                layout:{
+                    padding:{
+                        left: 100,
+                        right: 0,
+                        bottom: 0,
+                        top: 100
+                    }
+                },
+                tooltips:{
+                    enabled: true
+                }
+            }
+        });
+
+    </script>
+    
+</body>
+</html>
